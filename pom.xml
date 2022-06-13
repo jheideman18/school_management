@@ -43,6 +43,13 @@
         <version>5.8.2</version>
         <scope>test</scope>
     </dependency>
+
+    <dependency>
+        <groupId>commons-validator</groupId>
+        <artifactId>commons-validator</artifactId>
+        <version>1.7</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.opentest4j/opentest4j -->
     <dependency>
         <groupId>org.opentest4j</groupId>
@@ -50,11 +57,6 @@
         <version>1.0.0-M1</version>
         <scope>test</scope>
     </dependency>
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-    </dependency>
-
-
+ 
 </dependencies>
 </project>
