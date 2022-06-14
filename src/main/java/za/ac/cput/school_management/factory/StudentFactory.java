@@ -1,6 +1,6 @@
 package za.ac.cput.school_management.factory;
 
-import za.ac.cput.school_management.Helper.StringHelper;
+import za.ac.cput.school_management.helper.StringHelper;
 import za.ac.cput.school_management.domain.Student;
 
 /* StudentFactory.Java

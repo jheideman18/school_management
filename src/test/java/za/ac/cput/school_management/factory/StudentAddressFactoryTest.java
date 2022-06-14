@@ -1,10 +1,11 @@
-package za.ac.cput.school_management.test;
+package za.ac.cput.school_management.factory;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import za.ac.cput.school_management.domain.StudentAddress;
-import za.ac.cput.school_management.factory.StudentAddressFactory;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class StudentAddressFactoryTest {
     @Test

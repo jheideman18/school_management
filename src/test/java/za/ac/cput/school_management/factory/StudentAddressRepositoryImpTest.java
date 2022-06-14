@@ -1,4 +1,4 @@
-package za.ac.cput.school_management.test;
+package za.ac.cput.school_management.factory;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
