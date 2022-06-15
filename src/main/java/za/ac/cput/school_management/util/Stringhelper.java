@@ -2,7 +2,7 @@ package za.ac.cput.school_management.util;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class Stringhelper {
+public class Stringhelper{
 
     public static boolean isEmptyorNull(String str) {
         return StringUtils.isEmpty(str);
