@@ -1,5 +1,6 @@
 package za.ac.cput.school_management.repository;
 
+
 import java.util.Optional;
 
 public interface IRepository<T, ID> {

@@ -1,10 +1,11 @@
 package za.ac.cput.school_management.helper;
 
+
 import org.apache.commons.lang3.StringUtils;
 
 public class StringHelper {
     public static boolean isEmptyOrNull(String str){
-        return StringUtils.isEmpty(str);
+        return (m == null || m.equals("") || StringUtils.isEmpty(str);
     }
     public static String setEmptyIfNull(String str){
         if (isEmptyOrNull(str)) return StringUtils.EMPTY;
