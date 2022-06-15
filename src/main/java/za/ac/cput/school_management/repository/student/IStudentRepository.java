@@ -13,6 +13,5 @@ import java.util.List;
 
 public interface IStudentRepository extends IRepository<Student, String> {
 
-
     List<Student> getAll();
 }
