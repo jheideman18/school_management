@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Stringhelper {
 
-    private static boolean isEmptyorNull(String str) {
+    public static boolean isEmptyorNull(String str) {
         return StringUtils.isEmpty(str);
     }
 

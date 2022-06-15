@@ -5,16 +5,16 @@
 package za.ac.cput.school_management.factory.name;
 
 import za.ac.cput.school_management.domain.name.Name;
-import za.ac.cput.school_management.helper.StringHelper;
+import za.ac.cput.school_management.util.Stringhelper;
 
 public class NameFactory {
 
     public static Name build(String firstName, String middleName, String lastName){
-        if (StringHelper.isNullorEmpty(firstName))
+        if (Stringhelper.isEmptyorNull(firstName))
            throw new IllegalArgumentException("firstName is required");
-        if (StringHelper.isNullorEmpty(middleName))
+        if (Stringhelper.isEmptyorNull(middleName))
             throw new IllegalArgumentException("middleName is required");
-        if (StringHelper.isNullorEmpty(lastName))
+        if (Stringhelper.isEmptyorNull(lastName))
             throw new IllegalArgumentException("lastName is required");
             return new Name.Builder().firstName(firstName)
                 .middleName(middleName)
