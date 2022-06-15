@@ -5,10 +5,11 @@
 */
 package za.ac.cput.school_management.service;
 
-import za.ac.cput.school_management.domain.Employee;
+import za.ac.cput.school_management.domain.employee.Employee;
+import za.ac.cput.school_management.service.IService;
 
 
-public interface IEmployeeService extends IService<Employee, String>{
+public interface IEmployeeService extends IService<Employee, String> {
 
 
 }

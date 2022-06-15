@@ -5,7 +5,8 @@ package za.ac.cput.school_management.service;
  *  June Assignment
  *  Date: 09 June 2022
  * */
-import za.ac.cput.school_management.domain.Student;
+import za.ac.cput.school_management.domain.student.Student;
+import za.ac.cput.school_management.service.IService;
 
-public interface IStudentService extends IService<Student, String>{
+public interface IStudentService extends IService<Student, String> {
 }

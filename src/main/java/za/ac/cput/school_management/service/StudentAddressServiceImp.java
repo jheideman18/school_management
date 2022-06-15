@@ -1,11 +1,9 @@
 package za.ac.cput.school_management.service;
 
-import za.ac.cput.school_management.domain.StudentAddress;
-import za.ac.cput.school_management.repository.StudentAddressRepository;
-import za.ac.cput.school_management.repository.StudentAddressRepositoryImp;
+import za.ac.cput.school_management.domain.student.StudentAddress;
+import za.ac.cput.school_management.repository.student.StudentAddressRepository;
+import za.ac.cput.school_management.repository.student.StudentAddressRepositoryImp;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 /*

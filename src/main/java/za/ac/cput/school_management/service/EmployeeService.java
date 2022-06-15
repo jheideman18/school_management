@@ -5,8 +5,8 @@
 */
 package za.ac.cput.school_management.service;
 
-import za.ac.cput.school_management.domain.Employee;
-import za.ac.cput.school_management.repository.EmployeeRepository;
+import za.ac.cput.school_management.domain.employee.Employee;
+import za.ac.cput.school_management.repository.employee.EmployeeRepository;
 
 import java.util.Optional;
 

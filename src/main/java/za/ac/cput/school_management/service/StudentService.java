@@ -1,7 +1,7 @@
 package za.ac.cput.school_management.service;
 
-import za.ac.cput.school_management.domain.Student;
-import za.ac.cput.school_management.repository.StudentRepository;
+import za.ac.cput.school_management.domain.student.Student;
+import za.ac.cput.school_management.repository.student.StudentRepository;
 
 import java.util.Optional;
 /* StudentService.Java
