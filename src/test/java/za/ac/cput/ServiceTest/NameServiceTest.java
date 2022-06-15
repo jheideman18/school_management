@@ -7,13 +7,8 @@ import org.junit.jupiter.api.Test;
 import za.ac.cput.school_management.domain.name.Name;
 import za.ac.cput.school_management.factory.name.NameFactory;
 import za.ac.cput.school_management.repository.name.impl.NameRepositoryImpl;
-import za.ac.cput.school_management.service.name.impl.NameServiceImpl;
-
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertSame;
 

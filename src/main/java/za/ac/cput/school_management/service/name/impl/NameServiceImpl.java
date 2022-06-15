@@ -4,11 +4,9 @@ package za.ac.cput.school_management.service.name.impl;
 import za.ac.cput.school_management.domain.name.Name;
 import za.ac.cput.school_management.repository.name.impl.NameRepositoryImpl;
 import za.ac.cput.school_management.service.name.INameService;
-
 import java.util.Optional;
 
 
-//@Service
 public class NameServiceImpl implements INameService {
     private final NameRepositoryImpl repository;
     private static NameServiceImpl SERVICE;
