@@ -11,6 +11,6 @@ import za.ac.cput.school_management.repository.IRepository;
 import java.util.List;
 
 public interface IEmployeeAddressRepository extends IRepository<EmployeeAddress, String> {
-    public List<EmployeeAddress> getAll();
+    List<EmployeeAddress> getAll();
 }
 
