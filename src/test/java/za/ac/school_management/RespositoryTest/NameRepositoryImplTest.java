@@ -1,8 +1,9 @@
-package za.ac.cput.ServiceTest;
+package za.ac.school_management.RespositoryTest;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
+
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.school_management.domain.name.Name;
 import za.ac.cput.school_management.factory.name.NameFactory;
@@ -10,12 +11,12 @@ import za.ac.cput.school_management.repository.name.impl.NameRepositoryImpl;
 import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertSame;
 
 
-public class NameServiceTest {
-    private NameRepositoryImpl repository;
-    private Name name;
+public class NameRepositoryImplTest {
+
+        private NameRepositoryImpl repository;
+        private Name name;
 
 
     @BeforeEach
@@ -29,7 +30,7 @@ public class NameServiceTest {
         this.repository.delete(this.name);
 
     }
-    @org.junit.jupiter.api.Test
+    @Test
     public void save() {
         Name saved = this.repository.save(this.name);
         assertNotNull(saved);
@@ -37,31 +38,31 @@ public class NameServiceTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void read() {
         Name saved = this.repository.save(this.name);
         Optional<Name> read = this.repository.read(saved.getFirstName());
         assertAll(
 
-                () -> Assertions.assertTrue(read.isPresent()),
+                () -> assertTrue(read.isPresent()),
                 () -> assertSame(saved, read.get())
         );
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void delete() {
         Name saved = this.repository.save(this.name);
         List<Name> nameList = this.repository.findAll();
-        Assertions.assertEquals(1, nameList.size());
+        assertEquals(1, nameList.size());
         this.repository.delete(this.name);
         nameList = this.repository.findAll();
-        Assertions.assertEquals(0, nameList.size());
+        assertEquals(0, nameList.size());
     }
 
     @Test
-    public void findAll() {
+    public void findAll(){
         this.repository.save(this.name);
         List<Name> nameList = this.repository.findAll();
-        Assertions.assertEquals(1, nameList.size());
+        assertEquals(1, nameList.size());
     }
 }

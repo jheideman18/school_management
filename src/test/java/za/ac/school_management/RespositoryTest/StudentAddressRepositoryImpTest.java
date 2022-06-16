@@ -1,4 +1,4 @@
-package za.ac.cput.RespositoryTest;
+package za.ac.school_management.RespositoryTest;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,4 +1,4 @@
-package za.ac.cput.FactoryTest;
+package za.ac.school_management.FactoryTest;
 /* StudentFactoryTest.Java
  *  Author: Tim Davids 219296219
  *  Entity for Student

@@ -3,7 +3,7 @@
    Student Number : 219093717
    Date: June 2022
 */
-package za.ac.cput.FactoryTest;
+package za.ac.school_management.FactoryTest;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.school_management.domain.employee.Employee;

@@ -1,4 +1,4 @@
-package za.ac.cput.FactoryTest;
+package za.ac.school_management.FactoryTest;
 
 
 import org.junit.jupiter.api.Test;

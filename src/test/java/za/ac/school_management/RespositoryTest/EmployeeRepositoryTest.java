@@ -3,7 +3,7 @@
    Student Number : 219093717
    Date: June 2022
 */
-package za.ac.cput.RespositoryTest;
+package za.ac.school_management.RespositoryTest;
 
 
 public class EmployeeRepositoryTest {
