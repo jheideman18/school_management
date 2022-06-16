@@ -1,4 +1,4 @@
-package za.ac.cput.school_management.test.serviceTest;
+package za.ac.cput.ServiceTest;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
