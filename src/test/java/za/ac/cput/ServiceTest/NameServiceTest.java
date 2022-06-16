@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 
 public class NameServiceTest {
-
     private NameRepositoryImpl repository;
     private Name name;
 
