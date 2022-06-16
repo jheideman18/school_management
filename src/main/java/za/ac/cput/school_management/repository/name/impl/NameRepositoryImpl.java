@@ -14,9 +14,8 @@ public class NameRepositoryImpl implements INameRepository {
     }
 
     public static NameRepositoryImpl nameRepository() {
-        if (NAME_REPOSITORY == null) //{
+        if (NAME_REPOSITORY == null)
             NAME_REPOSITORY = new NameRepositoryImpl();
-        //}
         return NAME_REPOSITORY;
     }
 
@@ -35,7 +34,6 @@ public class NameRepositoryImpl implements INameRepository {
                 .findFirst();
 
     }
-
 
     public void delete(Name name) {
         this.nameList.remove(name);
