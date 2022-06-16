@@ -7,15 +7,20 @@ package za.ac.cput.school_management.factory.employee;
 
 import za.ac.cput.school_management.domain.address.Address;
 import za.ac.cput.school_management.domain.address.City;
+import za.ac.cput.school_management.domain.address.Country;
 import za.ac.cput.school_management.domain.employee.EmployeeAddress;
 import za.ac.cput.school_management.factory.address.AddressFactory;
-import za.ac.cput.school_management.util.Stringhelper;
+import za.ac.cput.school_management.factory.address.CityFactory;
+import za.ac.cput.school_management.factory.address.CountryFactory;
 
 public class EmployeeAddressFactory {
     public static EmployeeAddress createEmployeeAddress(String staffId, String unitNumber, String complexName,
-                                                        String streetNumber, String streetName, int postalCode, City city){
+                                                        String streetNumber, String streetName, int postalCode,
+                                                        City city){
+
         Address address = AddressFactory.createAddress(unitNumber, complexName, streetNumber,
                                                         streetName, postalCode, city);
+
 
         return new EmployeeAddress.EmployeeAddressBuilder()
                 .createStaffId(staffId)
