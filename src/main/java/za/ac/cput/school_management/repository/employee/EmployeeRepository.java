@@ -10,46 +10,50 @@ import za.ac.cput.school_management.domain.employee.Employee;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class EmployeeRepository  {
 
-    private static EmployeeRepository repository;
+    private final List<Employee> employeeList;
+    private static EmployeeRepository EMPLOYEE_REPOSITORY;
 
-    private final List<Employee> EmployeeBD;
 
     private EmployeeRepository() {
-       this.EmployeeBD = new ArrayList<>();
+       this.employeeList = new ArrayList<>();
     }
 
     public static  EmployeeRepository getRepository(){
-        if (repository == null) {
-            repository = new EmployeeRepository();
-
+        if (EMPLOYEE_REPOSITORY == null) {
+            EMPLOYEE_REPOSITORY = new EmployeeRepository();
         }
-         return repository;
+         return EMPLOYEE_REPOSITORY;
     }
 
     public Employee save ( Employee employee) {
-        Optional<Employee> read = read (employee.getStaffId(), employee.getEmail());
+        Optional<Employee> read = read(employee.getStaffId());
         if(read.isPresent()){
             delete(read.get());
         }
-        this.EmployeeBD.add(employee);
+        this.employeeList.add(employee);
         return employee;
     }
 
-    private Optional<Employee> read(String staffId, String email) {
-        return this.EmployeeBD.stream().filter(g -> g.getStaffId().equalsIgnoreCase(staffId))
-                .filter(g -> g.getEmail().equalsIgnoreCase(email))
+    public Optional<Employee> read(String staffId) {
+        return this.employeeList.stream().filter(g -> g.getStaffId().equalsIgnoreCase(staffId))
                 .findFirst();
     }
 
     public void delete( Employee employee){
-        this.EmployeeBD.remove(employee);
+        this.employeeList.remove(employee);
     }
 
-    public List<Employee> getAll() {
-        return this.EmployeeBD;
+    public List<Employee> findAll() {
+        return this.employeeList;
     }
 
+
+    public List<Employee> findByStaffId(String staffId) {
+        return this.employeeList.stream().filter(g -> g.getStaffId().equalsIgnoreCase(staffId))
+                .collect(Collectors.toList());
+    }
 }

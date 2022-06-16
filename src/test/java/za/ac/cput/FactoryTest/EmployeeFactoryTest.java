@@ -30,13 +30,11 @@ public class EmployeeFactoryTest {
 
     @Test
      void buildWithError(){
-        Exception exception = assertThrows(IllegalArgumentException.class,()
-                ->EmployeeFactory.createEmployee(
-                        null,"jsteyn18@gmail.com","April"
-                ,"John","Steyn"));
+        Exception exception = assertThrows(IllegalArgumentException.class,() ->
+                EmployeeFactory.createEmployee(null,"jsteyn18@gmail.com","April","John","Steyn"));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
-        assertSame("staffid required" , exceptionMessage);
+        assertSame("staffId required" , exceptionMessage);
 
 
 

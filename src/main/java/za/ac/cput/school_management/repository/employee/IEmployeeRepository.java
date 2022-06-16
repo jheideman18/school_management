@@ -12,6 +12,9 @@ import java.util.List;
 
 public interface IEmployeeRepository extends IRepository<Employee, String> {
 
-    public List<Employee> getAll();
+    public List<Employee> findAll();
+    public List<Employee> findByStaffId( String staffId);
+
+
 
 }
