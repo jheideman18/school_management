@@ -1,6 +1,5 @@
 package za.ac.school_management.FactoryTest;
 
-
 import org.junit.jupiter.api.Test;
 import za.ac.cput.school_management.domain.name.Name;
 import za.ac.cput.school_management.factory.name.NameFactory;

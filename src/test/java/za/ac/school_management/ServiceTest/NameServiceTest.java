@@ -17,7 +17,6 @@ public class NameServiceTest {
     private NameRepositoryImpl repository;
     private Name name;
 
-
     @BeforeEach
     void setUp(){
         this.name = NameFactory.build("Smangele", "Witness", "Mabaso");
@@ -29,7 +28,7 @@ public class NameServiceTest {
         this.repository.delete(this.name);
 
     }
-    @org.junit.jupiter.api.Test
+    @Test
     public void save() {
         Name saved = this.repository.save(this.name);
         assertNotNull(saved);
@@ -37,7 +36,7 @@ public class NameServiceTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void read() {
         Name saved = this.repository.save(this.name);
         Optional<Name> read = this.repository.read(saved.getFirstName());
@@ -48,7 +47,7 @@ public class NameServiceTest {
         );
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void delete() {
         Name saved = this.repository.save(this.name);
         List<Name> nameList = this.repository.findAll();
