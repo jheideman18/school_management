@@ -9,9 +9,9 @@ package za.ac.cput.RespositoryTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.school_management.domain.employee.Employee;
-import za.ac.cput.school_management.factory.employee.EmployeeFactory;
-import za.ac.cput.school_management.repository.employee.EmployeeRepository;
+import za.ac.cput.domain.employee.Employee;
+import za.ac.cput.factory.employee.EmployeeFactory;
+import za.ac.cput.repository.employee.EmployeeRepository;
 
 import java.util.List;
 import java.util.Optional;

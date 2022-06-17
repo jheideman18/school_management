@@ -1,0 +1,34 @@
+/* EmployeeFactory.java
+   Author: Damone Hartnick
+   Student Number : 219093717
+   Date: June 2022
+*/
+package za.ac.cput.factory.employee;
+
+import za.ac.cput.domain.employee.Employee;
+import za.ac.cput.util.Stringhelper;
+
+public class EmployeeFactory {
+
+    public static Employee createEmployee( String staffId, String email, String firstName, String middleName, String lastName)
+    {
+        Stringhelper.checkStringParam("staffId", staffId);
+        Stringhelper.checkStringParam("email", email);
+        Stringhelper.checkStringParam("firstName", firstName);
+        Stringhelper.checkStringParam("middleName", middleName);
+        Stringhelper.checkStringParam("lastName", lastName);
+
+
+
+        return new Employee.Builder()
+                .setStaffId(staffId)
+                .setEmail(email)
+                .setFirstName(firstName)
+                .setMiddleName(middleName)
+                .setLastName(lastName)
+                .build();
+    }
+
+
+
+ }

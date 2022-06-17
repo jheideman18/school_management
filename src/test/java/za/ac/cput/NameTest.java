@@ -3,7 +3,7 @@ package za.ac.cput;
 
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.school_management.domain.name.Name;
+import za.ac.cput.domain.name.Name;
 
 
 public class NameTest {
