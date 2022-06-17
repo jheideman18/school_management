@@ -28,24 +28,21 @@ public class StudentRepository {
     }
 
     public Student save(Student student) {
-        Optional<Student> read = read(student.getStudentID(), student.getStudentemail());
-        if (read.isPresent()){
-            delete(read.get());
-        }
+        Optional<Student> read = read(student.getStudentID());
+        read.ifPresent(this::delete);
         this.StudentDB.add(student);
     return student;
     }
 
-    public Optional<Student> read(String StudentID, String Studentemail) {
+    public Optional<Student> read(String StudentID) {
         return this.StudentDB.stream().filter(g -> g.getStudentID().equalsIgnoreCase(StudentID))
-                .filter(g -> g.getStudentemail().equalsIgnoreCase(Studentemail))
                 .findFirst();
     }
     public void delete(Student student) {
         this.StudentDB.remove(student);
 
     }
-    public List<Student> getAll() {
+    public List<Student> findAll() {
         return this.StudentDB;
     }
 }

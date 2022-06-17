@@ -12,9 +12,9 @@ import za.ac.cput.school_management.domain.student.Student;
 public class StudentFactory {
 
     public static Student build(String StudentID, String Studentemail, String name) {
-        Stringhelper.checkStringParam("", StudentID);
-        Stringhelper.checkStringParam("", Studentemail);
-        Stringhelper.checkStringParam("", name);
+        Stringhelper.checkStringParam("219296219", StudentID);
+        Stringhelper.checkStringParam("219296219@mycput.com", Studentemail);
+        Stringhelper.checkStringParam("Tim", name);
         return new Student.builder()
                 .StudentID(StudentID)
                 .Studentemail(Studentemail)

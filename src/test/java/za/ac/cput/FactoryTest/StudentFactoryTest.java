@@ -16,19 +16,20 @@ class StudentFactoryTest {
 
     @Test
     void buildWithError(){
-        Exception exception = assertThrows(IllegalAccessException.class,() ->
-                StudentFactory.build("","",""));
-        System.out.println(exception.getMessage());
-        assertTrue(exception.getMessage().contains("StudentID"));
+        Exception exception = assertThrows(IllegalArgumentException.class,() ->
+                StudentFactory.build(null,"",""));
+        String exceptionMessage = exception.getMessage();
+        System.out.println(exceptionMessage);
+        assertSame("StudentID required", exceptionMessage);
     }
 
     @Test
     void buildWithSuccess(){
-        Student student = StudentFactory
+        Student Student = StudentFactory
                 .build("219296219","219296219@mycput.ac.za","Tim");
-        System.out.println(student);
+        System.out.println(Student);
         assertAll(
-                () -> assertNotNull(student)
+                () -> assertNotNull(Student)
         );
     }
 }

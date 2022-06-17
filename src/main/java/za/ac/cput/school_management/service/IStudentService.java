@@ -8,5 +8,8 @@ package za.ac.cput.school_management.service;
 import za.ac.cput.school_management.domain.student.Student;
 import za.ac.cput.school_management.service.IService;
 
+import java.util.List;
+
 public interface IStudentService extends IService<Student, String> {
+    List<Student> findAll();
 }

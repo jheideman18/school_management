@@ -3,7 +3,9 @@ package za.ac.cput.school_management.service;
 import za.ac.cput.school_management.domain.student.Student;
 import za.ac.cput.school_management.repository.student.StudentRepository;
 
+import java.util.List;
 import java.util.Optional;
+
 /* StudentService.Java
  *  Author: Tim Davids 219296219
  *  Entity for Student
@@ -29,14 +31,16 @@ public class StudentService implements IStudentService{
     }
 
     @Override
-    public Optional<Student> read(String s) {
-        return null;
-    }
+    public Optional<Student> read(String s) {return this.repository.read(s);}
 
     @Override
     public void delete(Student student) {
         this.repository.delete(student);
 
+    }
+    @Override
+    public List<Student> findAll() {
+        return this.repository.findAll();
     }
 }
 
