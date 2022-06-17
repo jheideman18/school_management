@@ -7,20 +7,20 @@ package za.ac.cput.service;
 
 import za.ac.cput.domain.employee.EmployeeAddress;
 import za.ac.cput.repository.employee.EmployeeAddressRepository;
-import za.ac.cput.repository.employee.IEmployeeAddressRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class EmployeeAddressService implements IEmployeeAddressService {
-    private final IEmployeeAddressRepository repository;
-    private static EmployeeAddressService SERVICE;
+    private final EmployeeAddressRepository repository;
+    private static IEmployeeAddressService SERVICE;
 
-    private EmployeeAddressService(){this.repository = EmployeeAddressRepository.getRepository();}
+    private EmployeeAddressService(){this.repository =EmployeeAddressRepository.getRepository();}
 
     public static EmployeeAddressService getService(){
         if (SERVICE == null)
             SERVICE = new EmployeeAddressService();
-        return SERVICE;
+        return (EmployeeAddressService) SERVICE;
     }
 
     @Override
@@ -37,5 +37,11 @@ public class EmployeeAddressService implements IEmployeeAddressService {
     public void delete(EmployeeAddress employeeAddress) {
         this.repository.delete(employeeAddress);
     }
+
+    @Override
+    public List<EmployeeAddress> getAll() {
+        return this.repository.getAll();
+    }
+
 }
 
