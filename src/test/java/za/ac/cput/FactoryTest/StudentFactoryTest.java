@@ -7,8 +7,8 @@ package za.ac.cput.FactoryTest;
  * */
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.school_management.domain.student.Student;
-import za.ac.cput.school_management.factory.student.StudentFactory;
+import za.ac.cput.domain.student.Student;
+import za.ac.cput.factory.student.StudentFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

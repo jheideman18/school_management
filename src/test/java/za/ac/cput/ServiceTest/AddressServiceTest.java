@@ -3,13 +3,14 @@ package za.ac.cput.ServiceTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.school_management.domain.address.Address;
-import za.ac.cput.school_management.domain.address.City;
-import za.ac.cput.school_management.domain.address.Country;
-import za.ac.cput.school_management.factory.address.AddressFactory;
-import za.ac.cput.school_management.factory.address.CityFactory;
-import za.ac.cput.school_management.factory.address.CountryFactory;
-import za.ac.cput.school_management.repository.address.CountryRepository;
+import za.ac.cput.domain.address.Address;
+import za.ac.cput.domain.address.City;
+import za.ac.cput.domain.address.Country;
+import za.ac.cput.factory.address.AddressFactory;
+import za.ac.cput.factory.address.CityFactory;
+import za.ac.cput.factory.address.CountryFactory;
+import za.ac.cput.repository.address.AddressRepository;
+import za.ac.cput.repository.address.ICountryRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +22,7 @@ class AddressServiceTest {
     private City city;
     private Country country;
     private Address address;
-    private CountryRepository repository;
+    private AddressRepository repository;
 
     @BeforeEach
     void setUp(){
@@ -36,36 +37,36 @@ class AddressServiceTest {
 
 
 
-        this.repository = CountryRepository.countryRepository();
+       this.repository = AddressRepository.addressRepository();
     }
 
     @AfterEach
     void tearDown(){
-        this.repository.delete(this.country);
+        this.repository.delete(this.address);
 
     }
     @Test
     public void save() {
-        Country saved = this.repository.save(this.country);
+        Address saved = this.repository.save(this.address);
         assertNotNull(saved);
-        assertSame(this.country, saved);
+        assertSame(this.address, saved);
 
     }
 
     @Test
     public void delete() {
-        Country saved = this.repository.save(this.country);
-        List<Country> countryList = this.repository.findAll();
-        assertEquals(1, countryList.size());
-        this.repository.delete(this.country);
-        countryList = this.repository.findAll();
-        assertEquals(0, countryList.size());
+        Address saved = this.repository.save(this.address);
+        List<Address> addressList = this.repository.findAll();
+        assertEquals(1, addressList.size());
+        this.repository.delete(this.address);
+        addressList = this.repository.findAll();
+        assertEquals(0, addressList.size());
     }
 
     @Test
     public void read() {
-        Country saved = this.repository.save(this.country);
-        Optional<Country> read = this.repository.read(saved.getId());
+        Address saved = this.repository.save(this.address);
+        Optional<Address> read = (this.repository.read(saved.getUnitNumber()));
         assertAll(
 
                 () -> assertTrue(read.isPresent()),
@@ -75,9 +76,9 @@ class AddressServiceTest {
 
     @Test
     public void findAll(){
-        this.repository.save(this.country);
-        List<Country> countryList = this.repository.findAll();
-        assertEquals(1, countryList.size());
+        this.repository.save(this.address);
+        List<Address> addressList = this.repository.findAll();
+        assertEquals(1, addressList.size());
     }
 
 

@@ -10,9 +10,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import za.ac.cput.school_management.domain.employee.Employee;
-import za.ac.cput.school_management.factory.employee.EmployeeFactory;
-import za.ac.cput.school_management.service.EmployeeServiceImp;
+import za.ac.cput.domain.employee.Employee;
+import za.ac.cput.factory.employee.EmployeeFactory;
+import za.ac.cput.service.EmployeeServiceImp;
 
 import java.util.List;
 import java.util.Optional;

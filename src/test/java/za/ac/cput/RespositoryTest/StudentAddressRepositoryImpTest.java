@@ -3,10 +3,10 @@ package za.ac.cput.RespositoryTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.school_management.domain.student.StudentAddress;
-import za.ac.cput.school_management.factory.student.StudentAddressFactory;
-import za.ac.cput.school_management.repository.student.StudentAddressRepository;
-import za.ac.cput.school_management.repository.student.StudentAddressRepositoryImp;
+import za.ac.cput.domain.student.StudentAddress;
+import za.ac.cput.factory.student.StudentAddressFactory;
+import za.ac.cput.repository.student.StudentAddressRepository;
+import za.ac.cput.repository.student.StudentAddressRepositoryImp;
 
 import java.util.List;
 import java.util.Optional;

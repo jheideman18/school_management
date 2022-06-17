@@ -1,10 +1,10 @@
 package za.ac.cput.FactoryTest;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.school_management.domain.address.City;
-import za.ac.cput.school_management.domain.address.Country;
-import za.ac.cput.school_management.factory.address.CityFactory;
-import za.ac.cput.school_management.factory.address.CountryFactory;
+import za.ac.cput.domain.address.City;
+import za.ac.cput.domain.address.Country;
+import za.ac.cput.factory.address.CityFactory;
+import za.ac.cput.factory.address.CountryFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
