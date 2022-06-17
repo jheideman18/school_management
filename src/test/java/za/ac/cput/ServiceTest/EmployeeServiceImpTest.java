@@ -8,26 +8,30 @@ package za.ac.cput.ServiceTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import za.ac.cput.school_management.domain.employee.Employee;
 import za.ac.cput.school_management.factory.employee.EmployeeFactory;
-import za.ac.cput.school_management.repository.employee.EmployeeRepository;
 import za.ac.cput.school_management.service.EmployeeServiceImp;
-import za.ac.cput.school_management.service.IEmployeeService;
 
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.BDDAssumptions.given;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EmployeeServiceImpTest {
 
-    private Employee employee;
+    @Mock
+    private Employee employeeRepository;
+
+    @InjectMocks
     private EmployeeServiceImp service;
 
     @BeforeEach
     void setUp() {
-        this.employee = EmployeeFactory.createEmployee(
+        this.employeeRepository = EmployeeFactory.createEmployee(
                 "2556678",
                 "hg@gmail.com",
                 "Nicole",
@@ -39,20 +43,20 @@ public class EmployeeServiceImpTest {
 
     @AfterEach
     void tearDown() {
-        this.service.delete(this.employee);
+        this.service.delete(this.employeeRepository);
     }
 
     @Test
     void save() {
-        Employee saved = this.service.save(this.employee);
+        Employee saved = this.service.save(this.employeeRepository);
         assertNotNull(saved);
-        assertSame(this.employee, saved);
+        assertSame(this.employeeRepository, saved);
 
     }
 
     @Test
     void read() {
-        Employee saved = this.service.save(this.employee);
+        Employee saved = this.service.save(this.employeeRepository);
         Optional<Employee> read = this.service.read(saved.getStaffId());
         assertAll(
                 () -> assertTrue(read.isPresent()),
@@ -63,7 +67,7 @@ public class EmployeeServiceImpTest {
 
     @Test
     void delete() {
-        Employee saved = this.service.save(this.employee);
+        Employee saved = this.service.save(this.employeeRepository);
         List<Employee> employeeList= this.service.findAll();
         assertEquals(1, employeeList.size());
         this.service.delete(saved);
@@ -73,17 +77,39 @@ public class EmployeeServiceImpTest {
 
     @Test
     void findAll() {
-        this.service.save(this.employee);
+        this.service.save(this.employeeRepository);
         List<Employee> employeeList= this.service.findAll();
         assertEquals(1,employeeList.size());
     }
 
     @Test
     void findByStaffId() {
-        this.service.save(this.employee);
-        List<Employee> employeeList= this.service.findByStaffId(employee.getStaffId());
-        System.out.println(employee);
+        this.service.findByStaffId("2556678");
+        List<Employee> employeeList= this.service.findByStaffId(employeeRepository.getStaffId());
+        System.out.println(employeeRepository);
         assertNotNull(employeeList);
+    }
+
+    @Test
+    void findEmployeeFirstNameByEmail() {
+        this.service.findEmployeeFirstNameByEmail("hg@gmail.com");
+        Optional<Employee> employeeOptional= this.service.findEmployeeFirstNameByEmail(employeeRepository.getEmail());
+        System.out.println(employeeOptional);
+        assertNotNull(employeeOptional);
+
+
+    }
+
+    @Test
+    boolean existsByEmail() {
+
+        return false;
+    }
+
+    @Test
+    boolean existsByStaffId() {
+
+        return false;
     }
 
 }
