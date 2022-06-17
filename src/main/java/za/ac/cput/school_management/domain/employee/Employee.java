@@ -6,8 +6,13 @@
 
 package za.ac.cput.school_management.domain.employee;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Employee {
 
+    @Id
     private String staffId;
     private String email;
     private String firstName;
@@ -21,6 +26,10 @@ public class Employee {
         this.lastName = builder.lastName;
         this.middleName = builder.middleName;
 
+
+    }
+
+    public Employee() {
 
     }
 

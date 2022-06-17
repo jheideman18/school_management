@@ -91,5 +91,20 @@ public class EmployeeRepositoryTest {
 
     }
 
+    @Test
+    void findEmployeeFirstNameByEmail() {
+
+    }
+
+    @Test
+    void existsByEmail() {
+
+    }
+
+    @Test
+    void existsByStaffId() {
+
+    }
+
 
 }

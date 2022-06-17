@@ -5,6 +5,7 @@
 */
 package za.ac.cput.school_management.service;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.school_management.domain.employee.Employee;
 import za.ac.cput.school_management.repository.employee.EmployeeRepository;
 
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-
+@Service
 public class EmployeeServiceImp implements IEmployeeService {
 
     private final EmployeeRepository repository;
@@ -45,13 +46,40 @@ public class EmployeeServiceImp implements IEmployeeService {
 
     }
 
+    // List of all Employees
     @Override
     public List<Employee> findAll() {
         return this.repository.findAll();
     }
 
+    // Finds employees by staffId
     @Override
     public List<Employee> findByStaffId(String staffId) {
         return this.repository.findByStaffId(staffId);
     }
+
+     // Finds EmployeeFirstname by their email
+    @Override
+    public Optional<Employee> findEmployeeFirstNameByEmail(String email) {
+        return this.repository.findEmployeeFirstNameByEmail(email);
+    }
+
+
+    // Checks if email valid and exist
+    // true = exist
+    // false = doesn't exist or not valid
+    @Override
+    public boolean existsByEmail(String email) {
+        return this.repository.existsByEmail(email);
+    }
+
+    // Checks if staffId valid and exist
+    // true = exist
+    // false = doesn't exist or not valid
+    @Override
+    public boolean existsByStaffId(String staffId) {
+        return this.repository.existsByStaffId( staffId);
+    }
+
+
 }

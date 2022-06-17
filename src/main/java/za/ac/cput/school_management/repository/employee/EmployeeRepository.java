@@ -56,4 +56,17 @@ public class EmployeeRepository  {
         return this.employeeList.stream().filter(g -> g.getStaffId().equalsIgnoreCase(staffId))
                 .collect(Collectors.toList());
     }
+
+    public Optional<Employee> findEmployeeFirstNameByEmail(String email) {
+           return this.employeeList.stream().filter( g -> g.getEmail().equalsIgnoreCase(email))
+                   .findFirst();
+    }
+
+    public boolean existsByEmail(String email) {
+         return existsByEmail(email);
+    }
+
+    public boolean existsByStaffId(String staffId) {
+       return existsByStaffId(staffId);
+    }
 }
