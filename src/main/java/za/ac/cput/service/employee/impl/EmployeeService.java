@@ -3,30 +3,31 @@
    Student Number : 219093717
    Date: June 2022
 */
-package za.ac.cput.service;
+package za.ac.cput.service.employee.impl;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.employee.Employee;
 import za.ac.cput.repository.employee.EmployeeRepository;
+import za.ac.cput.service.employee.IEmployeeService;
 
 import java.util.List;
 import java.util.Optional;
 
 
 @Service
-public class EmployeeServiceImp implements IEmployeeService {
+public class EmployeeService implements IEmployeeService {
 
     private final EmployeeRepository repository;
     private static IEmployeeService SERVICE ;
 
-    private EmployeeServiceImp(){
+    private EmployeeService(){
         this.repository = EmployeeRepository.getRepository();
     }
 
-    public static EmployeeServiceImp getService() {
+    public static IEmployeeService getService() {
             if(SERVICE == null)
-                SERVICE = new EmployeeServiceImp();
-        return (EmployeeServiceImp) SERVICE;
+                SERVICE = new EmployeeService();
+        return  SERVICE;
     }
 
 
@@ -79,6 +80,14 @@ public class EmployeeServiceImp implements IEmployeeService {
     @Override
     public boolean existsByStaffId(String staffId) {
         return this.repository.existsByStaffId( staffId);
+    }
+
+    @Override
+    public void deleteById(String id) {
+        Optional<Employee> employee = read(id);
+        if(employee.isPresent()){
+            delete(employee.get());
+        }
     }
 
 

@@ -1,23 +1,27 @@
-package za.ac.cput.service;
-
+package za.ac.cput.service.address.impl;
+/*
+Jody Heideman 219307725
+ICityService.java
+14/06/22
+ */
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.address.City;
 import za.ac.cput.repository.address.CityRepository;
-import za.ac.cput.repository.address.ICityRepository;
+import za.ac.cput.service.address.ICityService;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CityService implements ICityService{
+public class CityService implements ICityService {
 
     private CityRepository repository;
-    private static CityService SERVICE;
+    private static ICityService SERVICE;
 
     public CityService(){
         this.repository = CityRepository.cityRepository();
     }
-    public static CityService getService(){
+    public static ICityService getService(){
         if(SERVICE == null)
             SERVICE = new CityService();
         return SERVICE;

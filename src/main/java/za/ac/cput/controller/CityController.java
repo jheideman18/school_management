@@ -1,5 +1,9 @@
 package za.ac.cput.controller;
-
+/*
+Jody Heideman 219307725
+Chulumanco Buhle Nkwindana 219390983
+CityController.java
+ */
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.address.City;
-import za.ac.cput.service.ICityService;
+import za.ac.cput.service.address.ICityService;
 
 import javax.validation.Valid;
 import java.util.List;

@@ -1,5 +1,8 @@
 package za.ac.cput.domain.student;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import za.ac.cput.domain.address.Address;
+
 import java.util.Objects;
 
 /*
@@ -8,9 +11,11 @@ Chulumanco Buhle Nkwindana
 219390983
 11 June 2022 */
 public class StudentAddress {
-    private String studentID, address;
+    private String studentID;
+    Address address;
 
-    private StudentAddress(){}
+
+   private StudentAddress(){}
 
     public StudentAddress(Builder builder) {
         this.studentID = builder.studentID;
@@ -22,7 +27,7 @@ public class StudentAddress {
         return studentID;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
     @Override
@@ -47,14 +52,15 @@ public class StudentAddress {
     }
 
     public static class Builder{
-        private String studentID, address;
+        private String studentID;
+        Address address;
 
         public Builder studentID(String studentID) {
             this.studentID = studentID;
             return this;
         }
 
-        public Builder address(String address) {
+        public Builder address(Address address) {
             this.address = address;
             return this;
         }

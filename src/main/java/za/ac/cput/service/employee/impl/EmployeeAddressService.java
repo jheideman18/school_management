@@ -1,4 +1,4 @@
-package za.ac.cput.service;
+package za.ac.cput.service.employee.impl;
 /*  EmployeeAddressService.Java
  *  Entity for EmployeeAddressService
  *  Author: Yasmeen Nel (219250553)
@@ -7,6 +7,7 @@ package za.ac.cput.service;
 
 import za.ac.cput.domain.employee.EmployeeAddress;
 import za.ac.cput.repository.employee.EmployeeAddressRepository;
+import za.ac.cput.service.employee.IEmployeeAddressService;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,10 +18,10 @@ public class EmployeeAddressService implements IEmployeeAddressService {
 
     private EmployeeAddressService(){this.repository =EmployeeAddressRepository.getRepository();}
 
-    public static EmployeeAddressService getService(){
+    public static IEmployeeAddressService getService(){
         if (SERVICE == null)
             SERVICE = new EmployeeAddressService();
-        return (EmployeeAddressService) SERVICE;
+        return SERVICE;
     }
 
     @Override

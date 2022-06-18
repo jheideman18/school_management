@@ -1,5 +1,9 @@
 package za.ac.cput.ServiceTest;
+/*
+Jody Heideman 219307725
+CountryServiceTest.java
 
+ */
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,8 +11,8 @@ import za.ac.cput.domain.address.City;
 import za.ac.cput.domain.address.Country;
 import za.ac.cput.factory.address.CityFactory;
 import za.ac.cput.factory.address.CountryFactory;
-import za.ac.cput.repository.address.ICountryRepository;
-import za.ac.cput.service.CountryService;
+import za.ac.cput.service.address.impl.CountryService;
+import za.ac.cput.service.address.ICountryService;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +23,7 @@ class CountryServiceTest {
 
     private City city;
     private Country country;
-    private CountryService service;
+    private ICountryService service;
 
     @BeforeEach
     void setUp(){

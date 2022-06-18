@@ -1,4 +1,12 @@
 package za.ac.cput.domain.student;
+import org.springframework.beans.factory.annotation.Autowired;
+import za.ac.cput.domain.name.Name;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 /* Student.Java
  *  Author: Tim Davids 219296219
@@ -6,26 +14,45 @@ import java.util.Objects;
  *  June Assignment
  *  Date: 09 June 2022
  * */
+@Entity
 public class Student {
-    private final String StudentID, Studentemail, name;
+    @NotNull
+    @Id
+    private String StudentID;
+    @NotNull
+    private String Studentemail;
+    @OneToOne
+    @JoinColumn(name = "name_first_name")
+    private Name name;
+
+    public void setName(Name name) {
+        this.name = name;
+    }
+
+
+    protected Student(){ }
+
     private Student(builder builder) {
         this.StudentID = builder.StudentID;
         this.Studentemail = builder.Studentemail;
         this.name = builder.name;
     }
+
     public String getStudentID() {
         return StudentID;
     }
     public String getStudentemail() {
         return Studentemail;
     }
-    public String getName() {
+
+    public Name getName() {
         return name;
     }
 
     public static class builder
     {
-        private String StudentID, Studentemail, name;
+        private String StudentID, Studentemail;
+        private Name name;
 
         public builder StudentID(String StudentID) {
             this.StudentID = StudentID;
@@ -37,7 +64,7 @@ public class Student {
             return this;
         }
 
-        public builder Name(String name) {
+        public builder Name(Name name) {
             this.name = name;
             return this;
         }
@@ -53,15 +80,7 @@ public class Student {
 
         public Student build() {return new Student(this);}
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return StudentID.equals(student.StudentID);
-    }
-    @Override
-    public int hashCode() {return Objects.hash(StudentID, Studentemail, name);}
+
     @Override
     public String toString() {
         return "Student{" +

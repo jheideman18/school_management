@@ -1,4 +1,8 @@
 package za.ac.cput.controller;
+/*
+Jody Heideman 219307725
+CountryController.java
+*/
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.address.Country;
-import za.ac.cput.service.ICountryService;
+import za.ac.cput.service.address.ICountryService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,6 +20,7 @@ import java.util.List;
 @RequestMapping("school/country/")
 @Slf4j
 public class CountryController {
+
     private final ICountryService iCountryService;
 
     @Autowired
@@ -32,7 +37,7 @@ public class CountryController {
     @GetMapping("read/{id}")
     public ResponseEntity<Country> read(@PathVariable String id){
         Country country = this.iCountryService.read(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "City not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Country not found"));
         return ResponseEntity.ok(country);
     }
     @DeleteMapping("delete/{id}")

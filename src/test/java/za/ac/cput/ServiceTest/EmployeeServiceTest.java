@@ -11,32 +11,35 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import za.ac.cput.domain.employee.Employee;
+import za.ac.cput.domain.name.Name;
 import za.ac.cput.factory.employee.EmployeeFactory;
-import za.ac.cput.service.EmployeeServiceImp;
+import za.ac.cput.factory.name.NameFactory;
+import za.ac.cput.service.employee.impl.EmployeeService;
+import za.ac.cput.service.employee.IEmployeeService;
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EmployeeServiceImpTest {
+public class EmployeeServiceTest {
 
     @Mock
     private Employee employeeRepository;
 
     @InjectMocks
-    private EmployeeServiceImp service;
+    private IEmployeeService service;
 
     @BeforeEach
     void setUp() {
-        this.employeeRepository = EmployeeFactory.createEmployee(
-                "2556678",
-                "hg@gmail.com",
-                "Nicole",
-                "Jade",
-                "Fisher");
+        Name name = NameFactory.build("Damone","Dale","Hen");
 
-        this.service = EmployeeServiceImp.getService();
+        this.employeeRepository = EmployeeFactory.createEmployee(
+                "159756875",
+                "hartnickdamone@gmail.com",
+                name);
+
+        this.service = EmployeeService.getService();
     }
 
     @AfterEach

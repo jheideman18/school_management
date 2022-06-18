@@ -5,12 +5,21 @@
  */
 package za.ac.cput.domain.name;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.*;
+
+@Embeddable
 public class Name {
 
-        private String firstName;
-        private String middleName;
-        private String lastName;
+    private String firstName;
 
+    private String middleName;
+
+    private String lastName;
+
+    protected Name(){}
 
         private Name(Builder builder) {
             this.firstName = builder.firstName;

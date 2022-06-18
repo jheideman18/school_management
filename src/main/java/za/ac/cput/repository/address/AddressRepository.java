@@ -1,7 +1,7 @@
 package za.ac.cput.repository.address;
 /*
 Jody Heideman 219307725
-CityRepository.java
+AddressRepository.java
 11/06/22
  */
 import za.ac.cput.domain.address.Address;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class AddressRepository implements IAddressRepository {
+public class AddressRepository  {
 
     private final List<Address> addressList;
         private static AddressRepository ADDRESS_REPOSITORY;

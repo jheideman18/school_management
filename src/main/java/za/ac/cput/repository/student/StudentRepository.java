@@ -1,5 +1,6 @@
 package za.ac.cput.repository.student;
 
+import za.ac.cput.domain.address.City;
 import za.ac.cput.domain.student.Student;
 
 import java.util.*;
@@ -10,6 +11,7 @@ import java.util.*;
  *  June Assignment
  *  Date: 09 June 2022
  * */
+
 public class StudentRepository {
     private static StudentRepository repository;
 
@@ -28,14 +30,15 @@ public class StudentRepository {
 
     public Student save(Student student) {
         Optional<Student> read = read(student.getStudentID());
-        read.ifPresent(this::delete);
+        if(read.isPresent()){
+            delete(read.get());
+        }
         this.StudentDB.add(student);
         return student;
     }
 
-    public Optional<Student> read(String StudentID) {
-        return this.StudentDB.stream().filter(g -> g.getStudentID().equalsIgnoreCase(StudentID))
-                .findFirst();
+    public Optional<Student> read(String studentId) {
+        return this.StudentDB.stream().filter(c -> c.getStudentID().equalsIgnoreCase(studentId)).findFirst();
     }
     public void delete(Student student) {
         this.StudentDB.remove(student);
