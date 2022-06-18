@@ -2,13 +2,14 @@ package za.ac.cput.service.name.impl;
 
 
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.name.Name;
 import za.ac.cput.repository.name.impl.NameRepository;
 import za.ac.cput.service.name.INameService;
 
 import java.util.Optional;
 
-
+@Service
 public class NameService implements INameService {
     
     private final NameRepository repository;
