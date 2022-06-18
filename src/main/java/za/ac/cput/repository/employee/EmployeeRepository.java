@@ -69,4 +69,8 @@ public class EmployeeRepository  {
     public boolean existsByStaffId(String staffId) {
        return existsByStaffId(staffId);
     }
+
+    public List<Employee> findAllEmployeeFirstNamesByCity(String cityId) {
+        return null;
+    }
 }

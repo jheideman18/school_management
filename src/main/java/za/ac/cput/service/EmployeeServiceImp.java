@@ -64,7 +64,12 @@ public class EmployeeServiceImp implements IEmployeeService {
         return this.repository.findEmployeeFirstNameByEmail(email);
     }
 
+    // Retrieve all employee names by city
+    @Override
+    public List<Employee> findAllEmployeeFirstNamesByCity(String cityId) {
+        return this.repository.findAllEmployeeFirstNamesByCity(cityId);
 
+    }
     // Checks if email valid and exist
     // true = exist
     // false = doesn't exist or not valid

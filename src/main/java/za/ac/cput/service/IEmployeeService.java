@@ -18,6 +18,9 @@ public interface IEmployeeService extends IService<Employee, String> {
 
     Optional<Employee> findEmployeeFirstNameByEmail(String email);
 
+    List<Employee> findAllEmployeeFirstNamesByCity( String cityId);
+
+
     boolean existsByEmail ( String email);
 
     boolean existsByStaffId( String staffId);

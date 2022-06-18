@@ -77,5 +77,13 @@ public class EmployeeController {
 
     }
 
+    @GetMapping("findAllEmployeeFirstNamesByCity")
+    public ResponseEntity<List <Employee>> findAllEmployeeFirstNamesByCity(@PathVariable String cityId){
+        log.info(" Find request : {}" , cityId );
+        List<Employee> employeeList = this.employeeServiceImp.findAllEmployeeFirstNamesByCity(cityId);
+        return ResponseEntity.ok(employeeList);
+
+    }
+
 
 }

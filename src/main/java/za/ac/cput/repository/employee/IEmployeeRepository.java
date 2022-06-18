@@ -20,6 +20,8 @@ public interface IEmployeeRepository extends JpaRepository<Employee, String> {
 
      Optional<Employee> findEmployeeFirstNameByEmail(String email);
 
+    public List<Employee> findAllEmployeeFirstNamesByCity(String cityId);
+
     boolean existsByEmail ( String email);
 
     boolean existsByStaffId( String staffId);

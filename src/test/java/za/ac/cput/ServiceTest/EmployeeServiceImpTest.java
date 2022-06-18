@@ -99,6 +99,17 @@ public class EmployeeServiceImpTest {
     }
 
     @Test
+    void findAllEmployeeFirstNamesByCity() {
+        this.service.findAllEmployeeFirstNamesByCity("03");
+        // change to cityId
+        List<Employee> employeeList= this.service.findAllEmployeeFirstNamesByCity(employeeRepository.getStaffId());
+        System.out.println(employeeList);
+        assertNotNull(employeeList);
+
+    }
+
+
+    @Test
     boolean existsByEmail() {
 
         return false;
