@@ -1,10 +1,11 @@
 package za.ac.cput.repository.name.impl;
 
 import za.ac.cput.domain.name.Name;
+import za.ac.cput.repository.IRepository;
 import za.ac.cput.repository.name.INameRepository;
 import java.util.*;
 
-public class NameRepository {
+public class NameRepository implements INameRepository {
 
         private final List<Name> nameList;
         private static NameRepository NAME_REPOSITORY;
