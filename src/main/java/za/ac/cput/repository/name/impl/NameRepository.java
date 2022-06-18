@@ -4,7 +4,7 @@ import za.ac.cput.domain.name.Name;
 import za.ac.cput.repository.name.INameRepository;
 import java.util.*;
 
-public class NameRepository implements INameRepository {
+public class NameRepository {
 
         private final List<Name> nameList;
         private static NameRepository NAME_REPOSITORY;
