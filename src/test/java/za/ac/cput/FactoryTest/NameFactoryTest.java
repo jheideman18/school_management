@@ -1,5 +1,8 @@
 package za.ac.cput.FactoryTest;
-
+/* NameFactoryTest.java
+ * Author: Smangele Witness Mabaso (220047154)
+ * Date: 14 June 2022
+ */
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.name.Name;

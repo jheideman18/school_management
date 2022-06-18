@@ -1,25 +1,28 @@
-package za.ac.cput.service;
-
+package za.ac.cput.service.address.impl;
+/*
+Jody Heideman 219307725
+ICountryService.java
+14/06/22
+ */
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.address.Country;
-import za.ac.cput.factory.address.CountryFactory;
 import za.ac.cput.repository.address.CountryRepository;
-import za.ac.cput.repository.address.ICountryRepository;
+import za.ac.cput.service.address.ICountryService;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CountryService implements ICountryService{
+public class CountryService implements ICountryService {
 
     private final CountryRepository repository;
-    private static CountryService SERVICE;
+    private static ICountryService SERVICE;
 
 
     private CountryService(){
         this.repository = CountryRepository.countryRepository();
     }
-    public static CountryService getService(){
+    public static ICountryService getService(){
         if(SERVICE == null)
             SERVICE = new CountryService();
         return SERVICE;

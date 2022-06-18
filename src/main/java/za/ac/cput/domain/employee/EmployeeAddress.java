@@ -1,11 +1,19 @@
 package za.ac.cput.domain.employee;
+/* EmployeeAddress.java
+   Author: Yasmeen Nel
+   Student Number : 219250553
+   Date: June 2022
+*/
 
 import za.ac.cput.domain.address.Address;
 
 public class EmployeeAddress {
     //Entity Attributes
-    private final String staffId;
-    private final Address address;
+    private  String staffId;
+    private  Address address;
+
+
+    protected EmployeeAddress() { }
 
     public EmployeeAddress(EmployeeAddressBuilder builder){
         this.staffId = EmployeeAddressBuilder.staffId;

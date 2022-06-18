@@ -1,5 +1,9 @@
 package za.ac.cput.ControllerTest;
-
+/*
+Jody Heideman 219307725
+Chulumanco Buhle Nkwindana 219390983
+CityControllerTest.java
+ */
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,7 +40,6 @@ class CityControllerTest {
     void setUp(){
         country = CountryFactory
                 .createCountry("01" , "South Africa");
-
         city = CityFactory.createCity("01", "Cape Town", country);
 
         baseUrl = "http://localhost:" + this.port + "/school/city/";
@@ -47,8 +50,8 @@ class CityControllerTest {
     void save() {
         String url = baseUrl + "save/";
         System.out.println(url);
-        ResponseEntity<Country> response = this.restTemplate
-                .postForEntity(url, this.city,Country.class);
+        ResponseEntity<City> response = this.restTemplate
+                .postForEntity(url, this.city,City.class);
         System.out.println(response);
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -74,6 +77,7 @@ class CityControllerTest {
     @Test
     void delete() {
         String url = baseUrl + "delete/" + this.city.getId();
+
         this.restTemplate.delete(url);
     }
     @Order(4)

@@ -6,26 +6,21 @@
 package za.ac.cput.factory.employee;
 
 import za.ac.cput.domain.employee.Employee;
+import za.ac.cput.domain.name.Name;
 import za.ac.cput.util.Stringhelper;
 
 public class EmployeeFactory {
 
-    public static Employee createEmployee( String staffId, String email, String firstName, String middleName, String lastName)
+    public static Employee createEmployee( String staffId, String email, Name name)
     {
         Stringhelper.checkStringParam("staffId", staffId);
         Stringhelper.checkStringParam("email", email);
-        Stringhelper.checkStringParam("firstName", firstName);
-        Stringhelper.checkStringParam("middleName", middleName);
-        Stringhelper.checkStringParam("lastName", lastName);
-
-
+        Stringhelper.checkStringParam("name", name.toString());
 
         return new Employee.Builder()
                 .setStaffId(staffId)
                 .setEmail(email)
-                .setFirstName(firstName)
-                .setMiddleName(middleName)
-                .setLastName(lastName)
+                .setName(name)
                 .build();
     }
 

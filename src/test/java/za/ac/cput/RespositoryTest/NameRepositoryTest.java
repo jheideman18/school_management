@@ -1,11 +1,14 @@
 package za.ac.cput.RespositoryTest;
-
+/* NameRepositoryTest.java
+ * Author: Smangele Witness Mabaso (220047154)
+ * Date: 14 June 2022
+ */
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.name.Name;
 import za.ac.cput.factory.name.NameFactory;
-import za.ac.cput.repository.name.impl.NameRepository;
+import za.ac.cput.repository.name.NameRepository;
 
 import java.util.List;
 import java.util.Optional;

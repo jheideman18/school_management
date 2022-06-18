@@ -1,7 +1,7 @@
 package za.ac.cput.repository.address;
 /*
 Jody Heideman 219307725
-CityRepository.java
+ICityRepository.java
 11/06/22
  */
 import org.springframework.data.jpa.repository.JpaRepository;

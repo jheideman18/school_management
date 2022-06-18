@@ -2,6 +2,7 @@ package za.ac.cput.domain.address;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /*
 Jody Heideman 219307725
@@ -9,7 +10,7 @@ City.java
 11/06/22
  */
 @Entity
-public class City {
+public class City implements Serializable {
     @NotNull
     @Id
     private  String id;
@@ -19,10 +20,6 @@ public class City {
     @OneToOne
     @JoinColumn(name = "country_id")
     private Country country;
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
 
     protected City(){ }
 

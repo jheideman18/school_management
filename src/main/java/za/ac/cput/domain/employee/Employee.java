@@ -6,90 +6,48 @@
 
 package za.ac.cput.domain.employee;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.beans.factory.annotation.Autowired;
+import za.ac.cput.domain.name.Name;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Employee {
 
     @Id
+    @GeneratedValue
     private String staffId;
+
     private String email;
-    private String firstName;
-    private String middleName;
-    private String lastName;
+    @Embedded
+    private Name name;
+
+
+    protected Employee() {}
 
     private Employee(Builder builder){
         this.staffId = builder.staffId;
         this.email = builder.email;
-        this.firstName = builder.firstName;
-        this.lastName = builder.lastName;
-        this.middleName = builder.middleName;
-
-
-    }
-
-    public Employee() {
-
+        this.name = builder.name;
     }
 
     public String getStaffId() {
         return staffId;
     }
 
-    public void setStaffId(String staffId) {
-        this.staffId = staffId;
-    }
-
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "staffId='" + staffId + '\'' +
-                ", email='" + email + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+    public Name getName() {
+        return name;
     }
 
     public static class Builder {
         private String staffId;
         private String email;
-        private String firstName;
-        private String middleName;
-        private String lastName;
+        private Name name;
 
         public Builder setStaffId(String staffId) {
             this.staffId = staffId;
@@ -101,37 +59,30 @@ public class Employee {
             return this;
         }
 
-        public Builder setFirstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        public Builder setMiddleName(String middleName) {
-            this.middleName = middleName;
-            return this;
-        }
-
-        public Builder setLastName(String lastName) {
-            this.lastName = lastName;
+        public Builder setName(Name name) {
+            this.name = name;
             return this;
         }
 
         public Builder copy(Employee employee) {
             this.staffId = employee.staffId;
             this.email = employee.email;
-            this.firstName = employee.firstName;
-            this.middleName = employee.middleName;
-            this.lastName = employee.lastName;
-
+            this.name = employee.name;
             return this;
         }
 
         public Employee build() {
             return new Employee(this);
-
         }
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "staffId='" + staffId + '\'' +
+                ", email='" + email + '\'' +
+                ", name=" + name +
+                '}';
     }
+}

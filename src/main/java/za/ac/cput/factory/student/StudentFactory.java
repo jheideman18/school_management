@@ -1,5 +1,6 @@
 package za.ac.cput.factory.student;
 
+import za.ac.cput.domain.name.Name;
 import za.ac.cput.util.Stringhelper;
 import za.ac.cput.domain.student.Student;
 
@@ -11,10 +12,11 @@ import za.ac.cput.domain.student.Student;
  * */
 public class StudentFactory {
 
-    public static Student build(String StudentID, String Studentemail, String name) {
+    public static Student build(String StudentID, String Studentemail, Name name) {
         Stringhelper.checkStringParam("219296219", StudentID);
         Stringhelper.checkStringParam("219296219@mycput.ac.za", Studentemail);
-        Stringhelper.checkStringParam("Tim", name);
+        Stringhelper.checkStringParam("Tim", name.toString());
+
         return new Student.builder()
                 .StudentID(StudentID)
                 .Studentemail(Studentemail)

@@ -1,14 +1,17 @@
-package za.ac.cput.repository.name.impl;
-
+package za.ac.cput.repository.name;
+/*
+ * Entity for NameRepository
+ * Author: Smangele Witness Mabaso (220047154)
+ * Date: 14 June 2022
+ */
 import za.ac.cput.domain.name.Name;
-import za.ac.cput.repository.name.INameRepository;
+
 import java.util.*;
 
-public class NameRepository implements INameRepository {
+public class NameRepository {
 
         private final List<Name> nameList;
         private static NameRepository NAME_REPOSITORY;
-
 
         private NameRepository() {
             this.nameList = new ArrayList<>();

@@ -1,20 +1,25 @@
-package za.ac.cput.service;
-
+package za.ac.cput.service.address.impl;
+/*
+Jody Heideman 219307725
+AddressService.java
+11/06/22
+ */
 import za.ac.cput.domain.address.Address;
 import za.ac.cput.repository.address.AddressRepository;
+import za.ac.cput.service.address.IAddressService;
 
 import java.util.List;
 import java.util.Optional;
 
-public class AddressService implements IAddressService{
+public class AddressService implements IAddressService {
     private final AddressRepository repository;
-    private static AddressService SERVICE;
+    private static IAddressService SERVICE;
 
     private AddressService(){
         this.repository = AddressRepository.addressRepository();
     }
 
-    public static AddressService getService(){
+    public static IAddressService getService(){
         if(SERVICE == null)
             SERVICE = new AddressService();
         return SERVICE;

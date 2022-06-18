@@ -2,15 +2,12 @@ package za.ac.cput.repository.address;
 
 /*
 Jody Heideman 219307725
-CityRepository.java
+CountryRepository.java.java
 11/06/22
  */
 
 
-import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.address.Country;
-import za.ac.cput.service.CityService;
-import za.ac.cput.service.CountryService;
 
 import java.util.ArrayList;
 import java.util.List;

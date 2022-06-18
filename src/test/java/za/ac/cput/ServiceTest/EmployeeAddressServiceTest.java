@@ -1,5 +1,9 @@
 package za.ac.cput.ServiceTest;
-
+/*  EmployeeAddressService.Java
+ *  Entity for EmployeeAddressServiceTest
+ *  Author: Yasmeen Nel (219250553)
+ *
+ * */
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,8 +15,8 @@ import za.ac.cput.domain.employee.EmployeeAddress;
 import za.ac.cput.factory.address.CityFactory;
 import za.ac.cput.factory.address.CountryFactory;
 import za.ac.cput.factory.employee.EmployeeAddressFactory;
-import za.ac.cput.repository.employee.EmployeeAddressRepository;
-import za.ac.cput.service.EmployeeAddressService;
+import za.ac.cput.service.employee.impl.EmployeeAddressService;
+import za.ac.cput.service.employee.IEmployeeAddressService;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,7 +29,7 @@ public class EmployeeAddressServiceTest {
     private EmployeeAddress employeeAddressRepository;
 
     @InjectMocks
-    private EmployeeAddressService service;
+    private IEmployeeAddressService service;
 
     private Country country;
     private City city;

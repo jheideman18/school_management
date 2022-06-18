@@ -10,7 +10,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.employee.Employee;
+import za.ac.cput.domain.name.Name;
 import za.ac.cput.factory.employee.EmployeeFactory;
+import za.ac.cput.factory.name.NameFactory;
 import za.ac.cput.repository.employee.EmployeeRepository;
 
 import java.util.List;
@@ -25,12 +27,11 @@ public class EmployeeRepositoryTest {
 
     @BeforeEach
     void setUp() {
+        Name name = NameFactory.build("Damone","Dale","Hen");
         this.employee = EmployeeFactory.createEmployee(
                 "159756875",
                 "hartnickdamone@gmail.com",
-                "Damone",
-                "Shelly",
-                "Dale");
+                name);
 
         this.repository = EmployeeRepository.getRepository();
 
@@ -42,9 +43,6 @@ public class EmployeeRepositoryTest {
         this.repository.delete(this.employee);
 
     }
-
-
-
 
     @Test
     void save() {

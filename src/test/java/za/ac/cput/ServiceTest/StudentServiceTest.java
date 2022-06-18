@@ -9,10 +9,11 @@ package za.ac.cput.ServiceTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.employee.Employee;
+import za.ac.cput.domain.name.Name;
 import za.ac.cput.domain.student.Student;
+import za.ac.cput.factory.name.NameFactory;
 import za.ac.cput.factory.student.StudentFactory;
-import za.ac.cput.service.StudentService;
+import za.ac.cput.service.student.impl.StudentService;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,11 +24,11 @@ class StudentServiceTest {
     private Student StudentRepository;
     private StudentService SERVICE;
 
-
+    Name name = NameFactory.build("Damone","Dale","Hen");
     @BeforeEach
     void setUp() {
         {
-            this.StudentRepository = StudentFactory.build("219296219","219296219@mycput.ac.za","Tim");
+            this.StudentRepository = StudentFactory.build("219296219","219296219@mycput.ac.za",name);
 
             this.SERVICE = (StudentService) StudentService.getService();
         }
