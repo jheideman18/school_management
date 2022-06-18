@@ -17,9 +17,7 @@ import za.ac.cput.service.EmployeeServiceImp;
 import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.BDDAssumptions.given;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EmployeeServiceImpTest {
 
