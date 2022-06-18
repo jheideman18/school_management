@@ -6,5 +6,8 @@ package za.ac.cput.service;
  * */
 import za.ac.cput.domain.employee.EmployeeAddress;
 
+import java.util.List;
+
 public interface IEmployeeAddressService extends IService<EmployeeAddress, String>{
+    List<EmployeeAddress> getAll();
 }

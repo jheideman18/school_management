@@ -11,7 +11,7 @@ import java.util.*;
  *  Date: 13 June 2022
  * */
 
-public class EmployeeAddressRepository implements IEmployeeAddressRepository{
+public class EmployeeAddressRepository{
 
     private static EmployeeAddressRepository repository = null;
     private List<EmployeeAddress> staffDB ;
@@ -26,7 +26,7 @@ public class EmployeeAddressRepository implements IEmployeeAddressRepository{
         return repository;
     }
 
-    @Override
+
     public EmployeeAddress save(EmployeeAddress employeeAddress) {
         Optional<EmployeeAddress> read = read(employeeAddress.getStaffId());
         if(read.isPresent()){
@@ -36,18 +36,18 @@ public class EmployeeAddressRepository implements IEmployeeAddressRepository{
         return employeeAddress;
     }
 
-    @Override
+
     public Optional<EmployeeAddress> read(String staffId) {
         return this.staffDB.stream().filter(s -> s.getStaffId().equalsIgnoreCase(staffId)).findFirst();
     }
 
 
-    @Override
+
     public void delete(EmployeeAddress employeeAddress) {
         this.staffDB.remove(employeeAddress);
     }
 
-    @Override
+
     public List<EmployeeAddress> getAll() {
         return this.staffDB;
     }

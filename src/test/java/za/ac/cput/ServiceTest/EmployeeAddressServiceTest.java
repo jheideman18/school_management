@@ -3,6 +3,8 @@ package za.ac.cput.ServiceTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import za.ac.cput.domain.address.City;
 import za.ac.cput.domain.address.Country;
 import za.ac.cput.domain.employee.EmployeeAddress;
@@ -10,7 +12,7 @@ import za.ac.cput.factory.address.CityFactory;
 import za.ac.cput.factory.address.CountryFactory;
 import za.ac.cput.factory.employee.EmployeeAddressFactory;
 import za.ac.cput.repository.employee.EmployeeAddressRepository;
-import za.ac.cput.repository.employee.IEmployeeAddressRepository;
+import za.ac.cput.service.EmployeeAddressService;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,56 +20,63 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class EmployeeAddressServiceTest {
-    private EmployeeAddress employeeAddress;
-    private IEmployeeAddressRepository repository;
+
+    @Mock
+    private EmployeeAddress employeeAddressRepository;
+
+    @InjectMocks
+    private EmployeeAddressService service;
+
     private Country country;
     private City city;
+
 
     @BeforeEach void setUp(){
         country = CountryFactory.createCountry("1555", "South Africa");
         city = CityFactory.createCity("898", "Cape Town", country);
 
-        this.employeeAddress = EmployeeAddressFactory.createEmployeeAddress("2192555",  "34",
+        this.employeeAddressRepository = EmployeeAddressFactory.createEmployeeAddress("2192555",  "34",
                 "Applebury", "105A", "Apple", 7878, city);
-        this.repository = EmployeeAddressRepository.getRepository();
-        EmployeeAddress saved = this.repository.save(this.employeeAddress);
-        assertSame(this.employeeAddress, saved);
+        this.service = EmployeeAddressService.getService();
+
+        EmployeeAddress saved = this.service.save(this.employeeAddressRepository);
+        assertSame(this.employeeAddressRepository, saved);
     }
 
     @AfterEach void tearDown(){
-        this.repository.delete(this.employeeAddress);
+        this.service.delete(this.employeeAddressRepository);
     }
 
     @Test
     void save(){
-        EmployeeAddress saved = this.repository.save(this.employeeAddress);
+        EmployeeAddress saved = this.service.save(this.employeeAddressRepository);
         System.out.println(saved);
         assertNotNull(saved);
-        assertSame(this.employeeAddress, saved);
+        assertSame(this.employeeAddressRepository, saved);
     }
 
     @Test
     void read(){
-        Optional<EmployeeAddress> read = this.repository.read(this.employeeAddress.getStaffId());
+        Optional<EmployeeAddress> read = this.service.read(this.employeeAddressRepository.getStaffId());
         assertTrue(read.isPresent());
-        assertSame(this.employeeAddress, read.get());
+        assertSame(this.employeeAddressRepository, read.get());
     }
 
     @Test
     void delete(){
-        EmployeeAddress saved = this.repository.save(this.employeeAddress);
-        List<EmployeeAddress> employeeAddressList = this.repository.getAll();
+        EmployeeAddress saved = this.service.save(this.employeeAddressRepository);
+        List<EmployeeAddress> employeeAddressList = this.service.getAll();
         assertEquals(1, employeeAddressList.size());
-        this.repository.delete(saved);
-        employeeAddressList = this.repository.getAll();
-        assertEquals(1, employeeAddressList.size());
+        this.service.delete(saved);
+        employeeAddressList = this.service.getAll();
+        assertEquals(0, employeeAddressList.size());
 
     }
 
     @Test
     void getAll(){
-        this.repository.save(this.employeeAddress);
-        List<EmployeeAddress> employeeAddressList = this.repository.getAll();
+        this.service.save(this.employeeAddressRepository);
+        List<EmployeeAddress> employeeAddressList = this.service.getAll();
         assertEquals(1, employeeAddressList.size());
     }
 }
